@@ -1,0 +1,8 @@
+venv/
+.venv/
+.convert_env/
+__pycache__/
+*.pyc
+.DS_Store
+.vscode/
+scratch/
