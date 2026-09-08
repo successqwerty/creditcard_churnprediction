@@ -1,0 +1,206 @@
+{
+    "feature_columns": [
+        "Customer_Age",
+        "Dependent_count",
+        "Months_on_book",
+        "Total_Relationship_Count",
+        "Months_Inactive_12_mon",
+        "Contacts_Count_12_mon",
+        "Credit_Limit",
+        "Total_Revolving_Bal",
+        "Avg_Open_To_Buy",
+        "Total_Amt_Chng_Q4_Q1",
+        "Total_Trans_Amt",
+        "Total_Trans_Ct",
+        "Total_Ct_Chng_Q4_Q1",
+        "Avg_Utilization_Ratio",
+        "Gender_M",
+        "Education_Level_Doctorate",
+        "Education_Level_Graduate",
+        "Education_Level_High School",
+        "Education_Level_Post-Graduate",
+        "Education_Level_Uneducated",
+        "Education_Level_Unknown",
+        "Marital_Status_Married",
+        "Marital_Status_Single",
+        "Marital_Status_Unknown",
+        "Income_Category_$40K - $60K",
+        "Income_Category_$60K - $80K",
+        "Income_Category_$80K - $120K",
+        "Income_Category_Less than $40K",
+        "Income_Category_Unknown",
+        "Card_Category_Gold",
+        "Card_Category_Platinum",
+        "Card_Category_Silver"
+    ],
+    "numerical_columns": [
+        "Customer_Age",
+        "Dependent_count",
+        "Months_on_book",
+        "Total_Relationship_Count",
+        "Months_Inactive_12_mon",
+        "Contacts_Count_12_mon",
+        "Credit_Limit",
+        "Total_Revolving_Bal",
+        "Avg_Open_To_Buy",
+        "Total_Amt_Chng_Q4_Q1",
+        "Total_Trans_Amt",
+        "Total_Trans_Ct",
+        "Total_Ct_Chng_Q4_Q1",
+        "Avg_Utilization_Ratio"
+    ],
+    "categorical_columns": [
+        "Gender",
+        "Education_Level",
+        "Marital_Status",
+        "Income_Category",
+        "Card_Category"
+    ],
+    "category_values": {
+        "Gender": [
+            "F",
+            "M"
+        ],
+        "Education_Level": [
+            "College",
+            "Doctorate",
+            "Graduate",
+            "High School",
+            "Post-Graduate",
+            "Uneducated",
+            "Unknown"
+        ],
+        "Marital_Status": [
+            "Divorced",
+            "Married",
+            "Single",
+            "Unknown"
+        ],
+        "Income_Category": [
+            "$120K +",
+            "$40K - $60K",
+            "$60K - $80K",
+            "$80K - $120K",
+            "Less than $40K",
+            "Unknown"
+        ],
+        "Card_Category": [
+            "Blue",
+            "Gold",
+            "Platinum",
+            "Silver"
+        ]
+    },
+    "scaler_mean": [
+        46.39019874089619,
+        2.3490927046043697,
+        36.00555486976916,
+        3.8100234538945807,
+        2.3462535489445746,
+        2.4564868534748796,
+        8580.06999135909,
+        1167.6721392420689,
+        7412.397852117023,
+        0.7596149858042217,
+        4388.065053697074,
+        64.70188865572152,
+        0.7133688433526726,
+        0.27566831255400565,
+        0.47265769658066903,
+        0.04394519195161091,
+        0.30638192815701765,
+        0.203678558202691,
+        0.05270954203184792,
+        0.14603135415380816,
+        0.14899395136402913,
+        0.46352302184915445,
+        0.3878533514380941,
+        0.07468213800765337,
+        0.17899024811751635,
+        0.14022960128379214,
+        0.14924083446488087,
+        0.3495864708060733,
+        0.10936921367732379,
+        0.011603505740032095,
+        0.002098506357239847,
+        0.05320330823355141
+    ],
+    "scaler_scale": [
+        7.984891777704011,
+        1.297912914075608,
+        7.933860890350686,
+        1.5546905941515297,
+        1.0112171028195405,
+        1.1100372273372394,
+        9031.805231552578,
+        814.7048432605044,
+        9031.773709509556,
+        0.21935561162787326,
+        3397.096225808322,
+        23.607374221894776,
+        0.2426623211083173,
+        0.2756483727483603,
+        0.49925183869839196,
+        0.20497319838443995,
+        0.46099028433992584,
+        0.4027326695602978,
+        0.22345300671649232,
+        0.3531376470412256,
+        0.35608250984984147,
+        0.4986676549215747,
+        0.48726084309775236,
+        0.2628777591776436,
+        0.383344152422267,
+        0.3472250857982194,
+        0.3563257046482991,
+        0.4768393547468872,
+        0.31210188845460013,
+        0.1070927840452994,
+        0.0457613661106011,
+        0.22443866918727962
+    ],
+    "threshold": 0.3,
+    "evaluation_metrics": {
+        "test_accuracy": 0.9155972359328727,
+        "precision_churn": 0.7225433526011561,
+        "recall_churn": 0.7692307692307693,
+        "f1_churn": 0.7451564828614009,
+        "confusion_matrix": [
+            [
+                1605,
+                96
+            ],
+            [
+                75,
+                250
+            ]
+        ],
+        "classification_report": {
+            "0": {
+                "precision": 0.9553571428571429,
+                "recall": 0.9435626102292769,
+                "f1-score": 0.9494232475598935,
+                "support": 1701.0
+            },
+            "1": {
+                "precision": 0.7225433526011561,
+                "recall": 0.7692307692307693,
+                "f1-score": 0.7451564828614009,
+                "support": 325.0
+            },
+            "accuracy": 0.9155972359328727,
+            "macro avg": {
+                "precision": 0.8389502477291495,
+                "recall": 0.856396689730023,
+                "f1-score": 0.8472898652106472,
+                "support": 2026.0
+            },
+            "weighted avg": {
+                "precision": 0.9180104094745191,
+                "recall": 0.9155972359328727,
+                "f1-score": 0.9166558741507078,
+                "support": 2026.0
+            }
+        }
+    }
+}
