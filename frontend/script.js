@@ -1,6 +1,6 @@
 /**
  * ChurnPredict — Frontend Inference Engine with TensorFlow.js
- * 100% Client-Side Machine Learning Prediction Pipeline
+ * 100% Client-Side Machine Learning Prediction Pipeline (INR ₹ Edition)
  */
 
 // Global state variables
@@ -25,7 +25,7 @@ const metricOutcome = document.getElementById('metricOutcome');
 const metricRisk = document.getElementById('metricRisk');
 const interpretationText = document.getElementById('interpretationText');
 
-// Sample Customer Presets
+// INR (₹) Sample Customer Presets
 const SAMPLES = {
     highRisk: {
         Customer_Age: 48,
@@ -33,7 +33,7 @@ const SAMPLES = {
         Dependent_count: 2,
         Education_Level: "Uneducated",
         Marital_Status: "Single",
-        Income_Category: "Less than $40K",
+        Income_Category: "Less than $40K", // Under ₹30 Lakhs
         Card_Category: "Blue",
         Months_on_book: 36,
         Total_Relationship_Count: 2,
@@ -41,11 +41,11 @@ const SAMPLES = {
         Contacts_Count_12_mon: 4,
         Total_Trans_Ct: 32,
         Total_Ct_Chng_Q4_Q1: 0.380,
-        Credit_Limit: 2400,
-        Total_Revolving_Bal: 0,
-        Avg_Open_To_Buy: 2400,
+        Credit_Limit: 192000,           // ₹1,92,000
+        Total_Revolving_Bal: 0,         // ₹0
+        Avg_Open_To_Buy: 192000,        // ₹1,92,000
         Total_Amt_Chng_Q4_Q1: 0.420,
-        Total_Trans_Amt: 1450,
+        Total_Trans_Amt: 116000,        // ₹1,16,000
         Avg_Utilization_Ratio: 0.000
     },
     lowRisk: {
@@ -54,7 +54,7 @@ const SAMPLES = {
         Dependent_count: 3,
         Education_Level: "Graduate",
         Marital_Status: "Married",
-        Income_Category: "$80K - $120K",
+        Income_Category: "$80K - $120K",  // ₹65 Lakhs - ₹100 Lakhs
         Card_Category: "Blue",
         Months_on_book: 36,
         Total_Relationship_Count: 5,
@@ -62,11 +62,11 @@ const SAMPLES = {
         Contacts_Count_12_mon: 2,
         Total_Trans_Ct: 82,
         Total_Ct_Chng_Q4_Q1: 0.820,
-        Credit_Limit: 15400,
-        Total_Revolving_Bal: 1850,
-        Avg_Open_To_Buy: 13550,
+        Credit_Limit: 1232000,          // ₹12,32,000
+        Total_Revolving_Bal: 148000,    // ₹1,48,000
+        Avg_Open_To_Buy: 1084000,       // ₹10,84,000
         Total_Amt_Chng_Q4_Q1: 0.780,
-        Total_Trans_Amt: 4850,
+        Total_Trans_Amt: 388000,        // ₹3,88,000
         Avg_Utilization_Ratio: 0.120
     }
 };
@@ -78,7 +78,7 @@ async function initApp() {
     try {
         updateStatus("Loading preprocessing metadata...", "loading");
 
-        // 1. Fetch preprocessing.json (try relative paths for Live Server compatibility)
+        // 1. Fetch preprocessing.json
         let jsonResponse;
         try {
             jsonResponse = await fetch('../preprocessing.json');
@@ -103,7 +103,7 @@ async function initApp() {
         console.log("Model Input Shape:", tfjsModel.inputs[0].shape);
 
         // 3. Mark ready in UI
-        updateStatus("Model Ready", "ready");
+        updateStatus("Model Ready (INR ₹)", "ready");
         predictBtn.disabled = false;
 
     } catch (error) {
@@ -202,6 +202,9 @@ function showFieldError(parentGroup, message) {
  * Extract raw inputs and construct 32-feature scaled array matching training pipeline
  */
 function preprocessInputs() {
+    // Helper to auto-convert INR (₹) to model scale ($1 = ₹80) if monetary amount is > ₹25,000
+    const toModelCurrency = (val) => (val > 25000 ? val / 80.0 : val);
+
     // 1. Gather raw inputs from form
     const raw = {
         Customer_Age: parseFloat(document.getElementById('Customer_Age').value),
@@ -215,11 +218,11 @@ function preprocessInputs() {
         Total_Relationship_Count: parseFloat(document.getElementById('Total_Relationship_Count').value),
         Months_Inactive_12_mon: parseFloat(document.getElementById('Months_Inactive_12_mon').value),
         Contacts_Count_12_mon: parseFloat(document.getElementById('Contacts_Count_12_mon').value),
-        Credit_Limit: parseFloat(document.getElementById('Credit_Limit').value),
-        Total_Revolving_Bal: parseFloat(document.getElementById('Total_Revolving_Bal').value),
-        Avg_Open_To_Buy: parseFloat(document.getElementById('Avg_Open_To_Buy').value),
+        Credit_Limit: toModelCurrency(parseFloat(document.getElementById('Credit_Limit').value)),
+        Total_Revolving_Bal: toModelCurrency(parseFloat(document.getElementById('Total_Revolving_Bal').value)),
+        Avg_Open_To_Buy: toModelCurrency(parseFloat(document.getElementById('Avg_Open_To_Buy').value)),
         Total_Amt_Chng_Q4_Q1: parseFloat(document.getElementById('Total_Amt_Chng_Q4_Q1').value),
-        Total_Trans_Amt: parseFloat(document.getElementById('Total_Trans_Amt').value),
+        Total_Trans_Amt: toModelCurrency(parseFloat(document.getElementById('Total_Trans_Amt').value)),
         Total_Trans_Ct: parseFloat(document.getElementById('Total_Trans_Ct').value),
         Total_Ct_Chng_Q4_Q1: parseFloat(document.getElementById('Total_Ct_Chng_Q4_Q1').value),
         Avg_Utilization_Ratio: parseFloat(document.getElementById('Avg_Utilization_Ratio').value)
@@ -236,7 +239,6 @@ function preprocessInputs() {
         }
         // One-Hot Encoded Categorical columns (format: <ColName>_<CategoryValue>)
         else {
-            // Find prefix match from categorical columns
             let matchedValue = 0;
             if (col.startsWith("Gender_")) {
                 const val = col.replace("Gender_", "");
@@ -383,7 +385,7 @@ sampleBtn.addEventListener('click', function() {
     document.querySelectorAll('.form-group').forEach(fg => fg.classList.remove('has-error'));
     document.querySelectorAll('.error-msg').forEach(em => em.style.display = 'none');
 
-    console.log(`Loaded ${sampleKey} sample customer data.`);
+    console.log(`Loaded ${sampleKey} INR ₹ sample customer data.`);
 });
 
 /**

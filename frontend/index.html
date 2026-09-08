@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Credit Card Customer Churn Prediction — ChurnPredict</title>
-    <meta name="description" content="AI-Powered Credit Card Customer Churn Prediction web application running directly in the browser via TensorFlow.js.">
+    <title>Credit Card Customer Churn Prediction — ChurnPredict (INR ₹)</title>
+    <meta name="description" content="AI-Powered Credit Card Customer Churn Prediction web application in Indian Rupees (₹) running directly in the browser via TensorFlow.js.">
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -28,7 +28,7 @@
                 </div>
                 <div class="brand-text">
                     <h1>ChurnPredict</h1>
-                    <span class="subtitle">AI-Powered Customer Churn Analytics</span>
+                    <span class="subtitle">AI-Powered Customer Churn Analytics (INR ₹)</span>
                 </div>
             </div>
             <div class="model-status-badge" id="modelStatusBadge">
@@ -42,8 +42,8 @@
             <!-- Left Column: Input Form -->
             <section class="form-section-card">
                 <div class="card-header">
-                    <h2><i class="fa-solid fa-sliders"></i> Customer Details</h2>
-                    <p class="description">Enter all 19 customer attributes to estimate churn likelihood in real-time.</p>
+                    <h2><i class="fa-solid fa-sliders"></i> Customer Details (INR ₹)</h2>
+                    <p class="description">Enter customer attributes in Indian Rupees (₹) to estimate churn likelihood in real-time.</p>
                 </div>
 
                 <form id="churnForm" class="churn-form" novalidate>
@@ -96,14 +96,14 @@
                                 <span class="error-msg">Marital status is required.</span>
                             </div>
                             <div class="form-group">
-                                <label for="Income_Category">Income Category <span class="required">*</span></label>
+                                <label for="Income_Category">Annual Income Bracket <span class="required">*</span></label>
                                 <select id="Income_Category" name="Income_Category" required>
-                                    <option value="" disabled selected>Select Income</option>
-                                    <option value="Less than $40K">Less than $40K</option>
-                                    <option value="$40K - $60K">$40K - $60K</option>
-                                    <option value="$60K - $80K">$60K - $80K</option>
-                                    <option value="$80K - $120K">$80K - $120K</option>
-                                    <option value="$120K +">$120K +</option>
+                                    <option value="" disabled selected>Select Income (₹)</option>
+                                    <option value="Less than $40K">Less than ₹30 Lakhs</option>
+                                    <option value="$40K - $60K">₹30 Lakhs - ₹50 Lakhs</option>
+                                    <option value="$60K - $80K">₹50 Lakhs - ₹65 Lakhs</option>
+                                    <option value="$80K - $120K">₹65 Lakhs - ₹100 Lakhs</option>
+                                    <option value="$120K +">₹100 Lakhs + (₹1 Cr+)</option>
                                     <option value="Unknown">Unknown</option>
                                 </select>
                                 <span class="error-msg">Income category is required.</span>
@@ -168,21 +168,21 @@
 
                     <!-- SECTION 4: Credit & Transaction Details -->
                     <div class="form-block">
-                        <h3 class="block-title"><i class="fa-solid fa-wallet"></i> Section 4: Credit & Transaction Details</h3>
+                        <h3 class="block-title"><i class="fa-solid fa-wallet"></i> Section 4: Credit & Transaction Details (INR ₹)</h3>
                         <div class="grid-3">
                             <div class="form-group">
-                                <label for="Credit_Limit">Credit Limit ($) <span class="required">*</span></label>
-                                <input type="number" id="Credit_Limit" name="Credit_Limit" min="0" step="0.01" placeholder="e.g. 12500" required>
+                                <label for="Credit_Limit">Credit Limit (₹) <span class="required">*</span></label>
+                                <input type="number" id="Credit_Limit" name="Credit_Limit" min="0" step="0.01" placeholder="e.g. ₹10,00,000" required>
                                 <span class="error-msg">Must be 0 or greater.</span>
                             </div>
                             <div class="form-group">
-                                <label for="Total_Revolving_Bal">Total Revolving Bal ($) <span class="required">*</span></label>
-                                <input type="number" id="Total_Revolving_Bal" name="Total_Revolving_Bal" min="0" step="0.01" placeholder="e.g. 1420" required>
+                                <label for="Total_Revolving_Bal">Total Revolving Bal (₹) <span class="required">*</span></label>
+                                <input type="number" id="Total_Revolving_Bal" name="Total_Revolving_Bal" min="0" step="0.01" placeholder="e.g. ₹1,13,600" required>
                                 <span class="error-msg">Must be 0 or greater.</span>
                             </div>
                             <div class="form-group">
-                                <label for="Avg_Open_To_Buy">Avg Open To Buy ($) <span class="required">*</span></label>
-                                <input type="number" id="Avg_Open_To_Buy" name="Avg_Open_To_Buy" min="0" step="0.01" placeholder="e.g. 11080" required>
+                                <label for="Avg_Open_To_Buy">Avg Open To Buy (₹) <span class="required">*</span></label>
+                                <input type="number" id="Avg_Open_To_Buy" name="Avg_Open_To_Buy" min="0" step="0.01" placeholder="e.g. ₹8,86,400" required>
                                 <span class="error-msg">Must be 0 or greater.</span>
                             </div>
                             <div class="form-group">
@@ -191,8 +191,8 @@
                                 <span class="error-msg">Must be 0 or greater.</span>
                             </div>
                             <div class="form-group">
-                                <label for="Total_Trans_Amt">Total Trans Amt ($) <span class="required">*</span></label>
-                                <input type="number" id="Total_Trans_Amt" name="Total_Trans_Amt" min="0" step="0.01" placeholder="e.g. 4250" required>
+                                <label for="Total_Trans_Amt">Total Trans Amt (₹) <span class="required">*</span></label>
+                                <input type="number" id="Total_Trans_Amt" name="Total_Trans_Amt" min="0" step="0.01" placeholder="e.g. ₹3,40,000" required>
                                 <span class="error-msg">Must be 0 or greater.</span>
                             </div>
                             <div class="form-group">
@@ -230,7 +230,7 @@
                         <div class="placeholder-icon">
                             <i class="fa-solid fa-calculator"></i>
                         </div>
-                        <p>Fill out the customer form and click <strong>Predict Churn</strong> to view neural network inference results.</p>
+                        <p>Fill out the customer details in <strong>Indian Rupees (₹)</strong> and click <strong>Predict Churn</strong> to view neural network inference results.</p>
                     </div>
 
                     <div class="result-content hidden" id="resultContent">
@@ -279,6 +279,7 @@
                     <h3><i class="fa-solid fa-network-wired"></i> Model Architecture & Specs</h3>
                     <ul class="info-list">
                         <li><strong>Engine:</strong> TensorFlow.js (In-Browser Inference)</li>
+                        <li><strong>Currency Unit:</strong> Indian Rupees (₹)</li>
                         <li><strong>Model Type:</strong> 3-Layer Artificial Neural Network (ANN)</li>
                         <li><strong>Input Features:</strong> 32 (14 Numerical + 18 One-Hot Categorical)</li>
                         <li><strong>Preprocessing:</strong> Dynamic `StandardScaler` standardisation</li>
@@ -296,7 +297,7 @@
 
         <!-- Footer -->
         <footer class="app-footer">
-            <p>Credit Card Customer Churn Prediction — Built with TensorFlow.js, HTML5, CSS3, & Vanilla JavaScript.</p>
+            <p>Credit Card Customer Churn Prediction (INR ₹) — Built with TensorFlow.js, HTML5, CSS3, & Vanilla JavaScript.</p>
         </footer>
     </div>
 
